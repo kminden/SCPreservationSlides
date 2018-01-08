@@ -1,0 +1,474 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Winter School 2018 Slides
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[utf8x,xcolor=svgnames,8pt]{beamer}
+
+\usepackage{tikz} \usetikzlibrary{matrix} \usetikzlibrary{patterns}
+\usepackage{bbm}
+
+\usepackage{appendixnumberbeamer}
+% Add total frame count to slides, optional. From Stefan,
+% http://www.latex-community.org/forum/viewtopic.php?f=4&t=2173
+%\expandafter\def\expandafter\insertshorttitle\expandafter{%
+ % \insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber}
+
+
+%\addtolength{\textwidth}{1.5em}
+%\addtolength{\oddsidemargin}{-0.75em}
+
+%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\baselinestretch}{1.2}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{statement}[theorem]{Statement}
+%\newtheorem{fact}[theorem]{Fact}
+%%\newtheorem{conjecture}[thm]{Conjecture}
+%\newtheorem*{thm*}{Theorem} % unnumbered
+%
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{question}[theorem]{Question}
+%\newtheorem{assumption}[theorem]{Assumption}
+%
+%\theoremstyle{remark}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem*{claim}{Claim}
+%\newtheorem{claimno}{Claim}
+
+
+
+%\renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\baselinestretch}{1.2}
+
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Namba}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\N}{{\overline{N}}}
+\renewcommand{\G}{\overline{G}}
+\renewcommand{\H}{\overline{H}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\pmb{\mathcal C}}
+
+\newcommand{\Pkl}{\ensuremath{\mathcal P_\kappa \lambda}}
+\newcommand{\Pkk}{\ensuremath{\mathcal P_\kappa \kappa}}
+
+%\newcommand{\C}{\leftexp{<\omega}{2}}
+\renewcommand{\U}{\mathcal{U}}
+\renewcommand{\c}{\mathfrak{c}}
+\newcommand{\PFA}{\textup{\ensuremath{\textsf{PFA}}}}
+\newcommand{\ZFC}{\textup{\ensuremath{\textsf{ZFC}}}}
+\newcommand{\SCFA}{\textup{\ensuremath{\textsf{SCFA}}}}
+\newcommand{\CH}{\textup{\textsf{CH}}}
+\newcommand{\GCH}{\textup{\ensuremath{\textsf{GCH}}}}
+\DeclareMathOperator{\cof}{cof}
+\DeclareMathOperator{\height}{height}
+\DeclareMathOperator{\ran}{range}
+\DeclareMathOperator{\otp}{otp}
+\DeclareMathOperator{\cp}{cp}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Succ}{succ}
+\DeclareMathOperator{\wfc}{wfc}
+\DeclareMathOperator{\Add}{\mathcal A\textit{dd}\,}
+\DeclareMathOperator{\Coll}{\mathcal C\textit{oll}\,}
+\newcommand{\card}[1]{\mathrm{card}(#1)}
+\newcommand{\Ord}{\textup{\ensuremath{\text{Ord}}}}
+\newcommand{\id}{\textup{\ensuremath{\text{id}}}}
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+\newcommand{\seq}[2]{\langle #1 \st #2 \rangle}
+\newcommand{\forces}{\Vdash}
+\newcommand{\rest}{\mathbin{\upharpoonright}}
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+\newcommand{\funcs}[2]{\leftexp{#1}{#2}}
+
+\newcommand{\Ptail}{\P_{\mathrm{tail}}}
+\newcommand{\Gtail}{G_{\mathrm{tail}}}
+
+\newcommand{\sk}[3]{ {\mathcal{S}\textit{k} \,}^{#1}( {#2} \cup {\ran(#3)} ) }
+\newcommand{\Sk}[3]{ {\mathcal{S}\textit{k} \,}^{#1}( {#2} \cup {#3} ) }
+
+\newcommand{\ubp}{\textup{\textrm{UBP}}}
+\newcommand{\sob}{\textrm{Suslin off the generic branch}}
+
+\newcommand{\To}{\longrightarrow}
+\newcommand{\kla}[1]{\langle #1 \rangle}
+\newcommand{\sub}{\subseteq}
+\newcommand{\bN}{{\bar{N}}}
+\newcommand{\V}{\mathrm{V}}
+\newcommand{\power}{\mathcal{P}}
+\newcommand{\bA}{\bar{A}}
+\newcommand{\goedel}[1]{{\prec}#1{\succ}}%{\,\prec\! #1 \!\succ\,}
+
+\DeclareMathOperator{\MPsc}{\textup{\textsf{MP}}_{\textit{sc}}}
+\DeclareMathOperator{\MPc}{\textup{\textsf{MP}}_{<\omega_1\textup{-closed}}}
+%\DeclareMathOperator{\RAsc}{\textup{\textsf{RA}}_{\textit{sc}}}
+%\DeclareMathOperator{\RAc}{\textup{\textsf{RA}}_{<\omega_1\textup{-closed}}}
+%\DeclareMathOperator{\bfRAsc}{\textup{\textsf{\textbf{RA}}}_{\textit{sc}}}
+
+\newcommand{\BSCFA}{\ensuremath{\mathsf{BSCFA}}}
+\newcommand{\BMM}{\ensuremath{\mathsf{BMM}}}
+\newcommand{\BFA}{\ensuremath{\mathsf{BFA}}}
+\newcommand{\MA}{\ensuremath{\mathsf{MA}}}
+\newcommand{\On}{\mathrm{On}}
+\newcommand{\ColNothing}{\mathrm{Col}}
+\newcommand{\Col}[1]{\ColNothing(#1)}
+\DeclareMathOperator{\TC}{\mathsf{TC}}
+\newcommand{\B}{\mathbb{B}}
+
+
+
+
+\mode<presentation>
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Boadilla}
+\usecolortheme[named={DarkGreen}]{structure}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.45\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+  	\usebeamerfont{date in head/foot}\insertshortdate\hspace*{3em}
+    \insertframenumber{} / \inserttotalframenumber%\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+
+%\useoutertheme{split}
+
+%\renewcommand{\emph}{\textit}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{question}{Question}
+
+
+\title{Subcomplete Forcing, Trees, and Generic Absoluteness}
+\author{Kaethe Minden}
+\institute[Marlboro]{Marlboro College}
+\date{}
+
+\begin{document}
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\begin{abstract} %Subcomplete forcing is a class of forcing notions introduced by Ronald Jensen. These forcings do not add reals but may change cofinalities to $\omega$, unlike proper forcings. Examples of subcomplete forcing include Namba forcing, Prikry forcing, and any countably closed forcing. 
+%In this talk I will introduce subcompleteness, and we will familiarize ourselves with the definition by seeing it does not add reals. We will then see that subcomplete forcing does not add branches to $\omega_1$-trees, one of a handful of recent results examining the interaction between subcomplete forcing and $\omega_1$--trees. \end{abstract}
+%\end{frame}
+
+%\section{Introduction}
+\begin{frame}
+%\frametitle{Subcomplete forcing} 
+Subcomplete forcing is a class of forcing notions defined by Ronald B. Jensen. Subcomplete forcing does not add reals, but may potentially alter cofinalities to $\omega$. %Defined at some point before 2012.
+\begin{block}{Examples of subcomplete forcing}
+\begin{itemize}
+	\item \textbf{Countably closed forcing}.
+	\item \textit{\textbf{Namba forcing}}, denoted by $\Namba$, a forcing notion consisting of subtrees $T \neq \emptyset$ of $\omega_2^{<\omega}$ ordered by inclusion, such that $T$ is downward closed in $\omega_2^{<\omega}$ and where each node in $T$ has $\omega_2$-many eventual successors in $T$. 
+Each condition in $\Namba$ has size $\omega_2$. Namba forcing adds a cofinal sequence $S: \omega \To \omega_2^V$ to the extension, a cofinal branch through $\omega_2^{<\omega}$.
+Under $\CH$, Namba forcing adds no new reals and is subcomplete \cite[Section 3.3]{Jensen:2012fr}. 
+	\item \textbf{Prikry forcing}, which forces a measurable cardinal to have cofinality $\omega$ while preserving cardinalities.
+%	\item Certain kinds of \textbf{generalized diagonal Prikry forcing} which force a sequence of measurables to have cofinality $\omega$.
+%	\item The forcing $\mathbb P_{\textbf{A}}$, which shoots a closed set of order type $\omega_1$ through a stationary set $A \subseteq \kappa$ of $\omega$-cofinal ordinals, and is used to force $\neg \Box_\kappa$.
+	\item \color{Green} \textbf{Generalized diagonal Prikry forcing}
+\end{itemize}
+\end{block}
+\begin{itemize}
+	\item Revised countable support ($rcs$) iterations of subcomplete forcing notions.
+	\item \color{Green} Lottery sums of subcomplete forcing notions.
+	\item \color{Green} If $\P$ is subcomplete and $\pi: \P \To \Q$ is a dense embedding, then $\Q$ is subcomplete. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+How subcompleteness fits in with other forcing classes which preserve stationary subsets of $\omega_1$:
+\begin{center}
+\begin{figure}[h!]
+    \begin{tikzpicture}
+      \draw (0:0cm) circle (3.4cm);
+      \node at (90:2.5cm) {Subproper};
+      \draw (90:0cm) circle (1cm) node [text=black] { Complete};
+      \node at (90:-0.4cm){ ($\sigma$-cl.)};
+      \node at (80:-1.4cm){?};
+      \draw (180:1cm) circle (2cm);
+      \node at (180:2cm) { Proper};
+      \draw (330:1cm) circle (2cm);
+      \node at (340:2cm){ Subcomplete};
+       \draw[color=ForestGreen] (150:1.8cm) circle (.4cm) node [text=ForestGreen] {\footnotesize $ccc$};
+    \end{tikzpicture}
+\end{figure} 
+\end{center}
+\end{frame}
+
+
+%\section{Trees}
+%\subsection{Subcomplete Forcing Interacting with $\omega_1$-trees}
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add branches to $\omega_1$-trees}
+%This proof is a forcing argument which uses a standard lifting technique in the context of small embeddings.
+\begin{theorem}\label{thm:scbranch} Let $T$ be an $\omega_1$-tree. If $\P$ is subcomplete then $\P$ does not add new branches to $T$. \end{theorem}
+\begin{block}{Proof sketch.}
+Assume not. Let $q$ be a condition forcing that $\dot b$ is a new cofinal branch through $\check T$. 
+Let $\theta$ verify the subcompleteness of $\P$ and find $N$, $\sigma$ so that: \begin{itemize} 
+	\item $\P \in H_\theta \subseteq N$
+	\item $\sigma: \N \cong X \prec N$ where $X$ is countable and $\N$ is full
+	\item $\sigma(\overline \theta, \overline{\P}, \overline T, \overline q, \overline{\dot b}) = \theta, \P, T, q, \dot b$. 
+\end{itemize}
+By elementarity, $\overline q$ forces $\overline{\dot b}$ to be a new cofinal branch through $\check{\overline T}$.
+
+Let $\alpha=\omega_1^{\overline N}$. Note that $\cp(\sigma)=\alpha$.
+
+
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add branches to $\omega_1$-trees}
+\begin{block}{Proof sketch continued.}
+The idea is to construct a generic $\overline G$ for $\overline{\P}$ over $\overline N$, using the countability of $\N$ to diagonalize against all branches through $T$ as seen on level $\alpha$ of the tree in $N$.
+%In particular since $\alpha$ is countable we may enumerate the branches on level $\alpha$ of $T$ in $N$. Also list the dense sets of $\overline{\P}$ in $\N$. 
+
+Inductively define a decreasing, chain of conditions $\overline q_n$, where $\overline q_0 = \overline q$, deciding values of $\overline{\dot b}$ in $\overline T$ differently than the $n$th ``branch" on level $\alpha$ in $T$. 
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-3,0)--(-4,2)--(-2,2)--(-3,0);
+%\draw[very thick,color=brown] (-3,0)--(-2.9,0.6)--(-3,1.5)--(-2.7,2);
+%\node [left,color=brown] at (-3,1.5) {$\overline b$};
+\node [above] at (-3,2) {$\overline T$};
+\draw[very thick, dotted, color=red] (-3,0)--(-2.9,0.6)--(-3,1.5)--(-2.7,2);
+\node [right] at (-2,2) {$\alpha = \omega_1^{\overline N}$};
+\draw[color=brown] (-3,0)--(-3.2,1)--(-3.7,2);
+\draw[color=brown] (-3,0)--(-3.1,0.9)--(-3,2);
+\draw[color=brown] (-3,0)--(-2.9,0.8)--(-2.7,1.4)--(-2.6,2);
+\draw[color=brown] (-3,0)--(-2.6,1)--(-2.3,2);
+%\draw[->, thick] (-1,1)--(1,1);
+\draw [->, color = teal, thick] (-1,1) arc [radius=2, start angle=140, end angle= 75];
+\node [above right, color=teal] at (0,1.7) {$\sigma$};
+\draw (3,0)--(1,4)--(5,4)--(3,0);
+\draw[densely dotted] (2, 2)--(4,2);
+\draw[very thick, color=brown] (3,0)--(2.8,1)--(2.3,2);
+\draw[color=brown] (2.3,2)--(2.3,3.2);
+\draw[very thick, color=brown] (3,0)--(2.9,0.9)--(3,2);
+\draw[color=brown] (3,2)--(2.5, 3)--(3,3.7);
+\draw[very thick, color=brown] (3,0)--(3.1,0.8)--(3.3,1.4)--(3.4,2);
+\draw[color=brown] (3.4,2)--(3.3, 2.5);
+\draw[very thick, color=brown] (3,0)--(3.4,1)--(3.7,2);
+\draw[color=brown] (3.7,2)--(4.2,3)--(4.5,3.8);
+%\node [left, color=brown] at (2.7,3) {$b$};
+\node [above] at (3,4) {$T$};
+\node [right] at (4,2) {$\alpha$};
+\node [right] at (5,4) {$\omega_1$};
+\end{tikzpicture}
+$\overline T = T \upharpoonright \alpha$
+\end{center}
+\end{block}
+\end{frame}
+
+%The construction may go as follows: Let $\overline p_0 := \overline p \in \overline N$. For each $n < \omega$, note that there must be two conditions $\overline p^0_{n+1} \perp \overline p^1_{n+1}$, both extending $\overline p_n$, which decide the value of the branch $\overline{\dot b}$ at some point to be different. Say $\overline p^1_{n+1} \Vdash \check x_{n} \in \overline{\dot b}$ and $\overline p^0_{n+1} \Vdash \check x_n \notin \overline{\dot b}$. Let $\overline p_{n+1}$ be a condition in $\overline D_n$ extending $\overline p^1_{n+1}$ if $x_n \notin b_n$ (this would be considered in $N$), and $\overline p^0_{n+1}$ otherwise. 
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add branches to $\omega_1$-trees}
+\begin{block}{Proof sketch continued.}
+Furthermore list out the (countably many) dense sets of $\overline{\P}$, $\vec{\overline D}$, and ensure that each $\overline q_n \in \overline D_n$.
+
+Let $\G$ be the generic filter generated by the $\overline q_n$, let $\overline{\dot b}^{\G} = \overline b$.
+Since $\P$ is subcomplete, there is a condition $p \in \P$ such that whenever $G$ is $\P$-generic with $p \in G$, we have $\sigma' \in V[G]$ such that: \begin{itemize}
+	\item $\sigma': \overline N \To N$ elementarily
+	\item $\sigma'(\overline \theta, \overline{\P}, \overline T, \overline q, \overline{\dot b}) = \theta, \P, T, q, \dot b$
+	\item $\sigma'``\, \overline G \subseteq G$.
+\end{itemize} 
+So there is a lift $\sigma^*:\N[\G] \To N[G]$ elementary, a lift of $\sigma'$, with $\sigma^*(\overline b) = \sigma'(\overline{\dot b})^G=\dot b^G = b$, and $\sigma^*(\overline T) = \sigma'(\overline T)^G=T$. Now we have $N[G] \models q \in G$, so $b$ is a cofinal branch through $T$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add branches to $\omega_1$-trees}
+\begin{block}{Proof sketch continued.}
+\begin{center}
+\begin{tikzpicture}
+\draw (-3,0)--(-4,2)--(-2,2)--(-3,0);
+\draw[very thick,color=red] (-3,0)--(-2.9,0.6)--(-3,1.5)--(-2.7,2);
+\node [left,color=red] at (-3,1.5) {$\overline b$};
+\node [above] at (-3,2) {$\overline T$};
+\node [right] at (-2,2) {$\alpha = \omega_1^{\N}$};
+%\draw[->, thick] (-1,1)--(1,1);
+\draw [->, color = teal, thick] (-1,1) arc [radius=2, start angle=140, end angle= 75];
+\node [above right, color=teal] at (-0.2,1.7) {$\sigma^*$};
+\draw (3,0)--(1,4)--(5,4)--(3,0);
+\draw[densely dotted] (2, 2)--(4,2);
+
+\draw[color=brown] (3,0)--(2.8,1)--(2.3,2);
+\draw[color=brown] (2.3,2)--(2.3,3.2);
+\draw[color=brown] (3,0)--(2.9,0.9)--(3,2);
+\draw[color=brown] (3,2)--(2.5, 3)--(3,3.7);
+\draw[color=brown] (3,0)--(3.1,0.8)--(3.3,1.4)--(3.4,2);
+\draw[color=brown] (3.4,2)--(3.3, 2.5);
+\draw[color=brown] (3,0)--(3.4,1)--(3.7,2);
+\draw[color=brown] (3.7,2)--(4.2,3)--(4.5,3.8);
+
+\draw[very thick, color=red] (3,0)--(3.1,0.6)--(3,1.5)--(3.3,2);
+\draw[color=red] (3.3,2)--(3, 3)--(3.5,4);
+\node [left, color=red] at (3,3) {$b$};
+\node [above] at (3,4) {$T$};
+\node [right] at (4,2) {$\alpha$};
+\node [right] at (5,4) {$\omega_1$};
+\end{tikzpicture}
+%$$\overline T = T \upharpoonright \omega_1^{\overline N}$$
+\end{center}
+Since $\alpha$ is the critical point of the embedding, in $N[G]$, $b \upharpoonright \alpha = \overline b$. However, $\overline b$ was constructed so as to not be equal to any branch restricted to level $\alpha$, the ones we listed out initially, a contradiction.
+\qed
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add branches to $\omega_1$-trees}
+\begin{block}{Corollary}
+Subcomplete forcing preserves Aronszajn trees.
+\end{block}
+\begin{block}{Corollary}
+If an $\omega_1$-tree is not Kurepa, it cannot become Kurepa in a subcomplete forcing extension.
+\end{block}
+Moreover, subcomplete forcing does not add branches to potentially ``wider" trees with levels of size less than $\c$:
+\begin{theorem} Subcomplete forcing cannot add branches to $(\omega_1, < 2^\omega)$-trees. \end{theorem} 
+\end{frame}
+
+%\subsection{Subcomplete forcing and properties of Suslin trees}
+
+\begin{frame}
+\frametitle{Suslin tree preservation}
+\begin{theorem}[Jensen] \label{fact:Suslinpres} Subcomplete forcing preserves the property of being Suslin of $\omega_1$-trees. \end{theorem}
+
+\smallskip
+This proof of the above is necessarily different from the proof that subcomplete forcing doesn't add branches to $\omega_1$-trees, as it is possible for maximal antichains to be added by subcomplete forcing.
+
+\begin{proposition} If $T$ is a non-Suslin $\omega_1$-tree, then $\Add(\omega_1, 1)$ adds a new maximal antichain to $T$. \end{proposition}
+\begin{proof}
+Let $A = \set{ a_\alpha }{ \alpha < \omega_1 }$ be a maximal antichain in $T$. Let $G \subseteq \omega_1$ be $\Add(\omega_1, 1)$-generic. Let $A' = \set{ a_\alpha }{\alpha \notin G} \cup \set{ t \in T }{ \exists \alpha \in G \ \ t \in \Succ_T(a_\alpha) }$. Then $A'$ is a maximal antichain in $T$ and $A' \notin V$ since $G = \set{ \alpha < \omega_1 }{ a_\alpha \notin A' }$. 
+\end{proof}
+%\begin{corollary} The property of being Suslin of $\omega_1$-trees is $sc$-absolute. \end{corollary}
+
+\begin{corollary} \label{cor:CCCnotSC} Nontrivial $ccc$ forcings are not subcomplete. \end{corollary}
+\begin{proof}[Proof sketch]
+If $\P$ is subcomplete and $ccc$ then $\P$ is countably distributive (since it can't add a real), and $ccc$ countably distributive forcings are Suslin algebras, which add a branch to a Suslin tree and thus can't be subcomplete.
+\end{proof}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{The unique branch property of Suslin trees}
+\begin{definition} A normal $\omega_1$-tree $T$ has the \textbf{\emph{unique branch property}} (\textit{ubp}) so long as $\mathbbm 1 \forces_T `` \check T \text{ has exactly one new cofinal branch.}"$ That is, after forcing with the tree, $T$ has has exactly one cofinal branch which was not in the ground model. \end{definition}
+
+\begin{theorem} \label{thm:genericbranchpres} 
+If $T$ is a Suslin tree and $\P$ is subcomplete, then $ [T]^{V^{\P \times T}} = [T]^{V^T}$. In other words, subcomplete forcing doesn't add to the collection of $T$-generic branches. \end{theorem}
+
+\begin{corollary} \label{thm:UBP} 
+Subcomplete forcing preserves the unique branch property of Suslin trees. \end{corollary}
+
+\begin{block}{Proof of Theorem.}
+Suppose not. Let $\ddot b$ be a $\P$-name for a $\check T$-name for a new branch through $T$ and suppose we have $p \in \P$, $t \in T$ satisfying that whenever $G\times b \subseteq \P\times T$ is generic with $\langle p, t \rangle \in G \times b$ we have that $(\ddot b^G)^b \in [T]^{V[G][b]} \setminus [T]^{V[b]}$.	
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add generic branches to Suslin trees}
+\begin{block}{Proof of Theorem continued.}
+Let $\theta$ verify the subcompleteness of $\P$, and let's get ourselves into the standard setup: \begin{itemize} 
+	\item $\P \in H_\theta \subseteq N \models \ZFC^-$
+	\item $\sigma: \N \cong X \prec N$ where $X$ is countable and $\N$ is full
+	\item $\sigma(\overline \theta, \overline{\P}, \overline T, \overline p, \overline{\ddot b}, \overline t) = \theta, \P, T, p, \ddot b, t$. 
+\end{itemize}
+Let $\alpha = \omega_1^{\N}$, the critical point of $\sigma$. We have $\overline T = T \rest \alpha$ as usual. 
+
+Enumerate with $\vec{\overline{D}}$ the dense sets of $\overline \P$ in $\N$. Again the idea is to carefully construct a generic $\G \subseteq \overline{\P}$ over $\N$ by diagonalizing against branches $\vec b$ on level $\alpha$ of $T$. We may ensure that $\overline t \in b_0$. We construct a $\leq_{\overline{\P}}$-sequence $\seq{\overline p_n}{ n< \omega }$ satisfying, for each $n$: \begin{enumerate}
+	\item $\overline p_n \in \overline D_n$
+	\item In $\N$, $\overline p_n \forces_{\overline \P} \left( \check{\overline{t'}} \forces_{\check {\overline{T}}} \overline{\ddot b}(\check \gamma) \neq (\check{b_n(\gamma)}) \right)$, for some $\gamma < \alpha$ and $\overline{t'} \in b_0$, $\sigma(\overline{t'}) = t' \geq_T t$. In other words, $\overline p_n$ forces that the canonical name for $\overline{t'}$ forces the value of the generic branch to be different from the $n$th ``branch" in our list in $N$.
+	\end{enumerate}
+If we can satisfy these two conditions, then we are done.
+\end{block}	
+\end{frame}
+
+\begin{frame}
+\frametitle{Subcomplete forcing doesn't add generic branches to Suslin trees}
+\begin{proof}[Proof of Theorem continued.]
+Suppose $\overline p_m$ have been defined for $m<n$. To get $\overline p_n$, choose $\overline q_n$ below each $\overline p_m$ for all $m<n$, satisfying $\overline q_n \in \overline D_n$. 
+
+As $\overline T$ is Suslin in $\N$ and cofinal branches are generic for Suslin trees, we have that $\N[b_0]$ is a generic extension. Let $\G^0, \G^1$ be mutually $\overline{\P}$-generic over $\N[b_0]$ so that $\overline p, \overline q_n \in \G^0 \cap \G^1$. For $i=0,1$ let $\overline c^i = (\overline{\ddot b}^{\G^i})^{b_0}$. 
+	
+%Thus we have $$\N[b_0][\G^i]=\N[\G^i][b_0].$$ 
+Since $\overline p \in \G^0, \G^1$ and $\overline t \in b_0$, both of the $\overline c^i$ are cofinal branches through $\overline T$.
+It follows from the mutual genericity of $\G^0$ and $\G^1$ that $\overline c^0 \neq \overline c^1$; otherwise, suppose that $\overline c = \overline c^0 = \overline c^1$. Then we'd have $$\overline c \in \N[\G^0][b_0] \cap \N[\G^1][b_0] = \N[b_0][\G^0] \cap \N[b_0][\G^1] = \N[b_0]$$ so $\overline c \in [\overline T]^{V[b_0]}$, a contradiction.
+
+So let $\overline c \in \{ \overline c^0, \overline c^1 \}$ be such that $\overline c \neq b_n$. %Maybe we can just pick one of them to be different from $b_n$ like usual since we know one of them has to be, instead of arguing like this using the unique branch.
+Thus we may choose $\gamma < \alpha$ so that the value of $\overline c$ on level $\alpha$ is not the same as $b_n(\gamma)$. Then this holds in some $\N[\G^i][b_0]$, and we can obtain a condition $\overline p_n \leq \overline q_n$ forcing this.
+\end{proof}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Suslin off the generic branch} %Add a link to the proof here
+\begin{definition} A Suslin tree $T$ is \textbf{\emph{Suslin off the generic branch}} so long as after forcing with $T$ to add a generic branch $b$, for any node $t$ not in $b$, the tree $T_t$ remains Suslin. \end{definition}
+
+\begin{theorem} \label{thm:suslinoffbranch}
+If $T$ is a Suslin tree which is also Suslin off the generic branch, then $T$ is still Suslin off the generic branch after subcomplete forcing.
+\end{theorem}
+\end{frame}
+
+%\subsection{The two step iteration, forcing equivalence, etc.}
+%\begin{frame}
+%\begin{theorem} \label{thm:SubproperMM}
+%Subproper, indeed subcomplete, forcings preserve stationary subsets of $\omega_1$.
+%\end{theorem}
+%
+%\begin{lemma}\label{lem:sclottery} 
+%Lottery sums of subcomplete forcings are subcomplete.
+%\end{lemma}
+%
+%\begin{proposition}\label{prop:scde} If $\P$ is subcomplete and $\P$ densely embeds into $\Q$, then $\Q$ is subcomplete. \end{proposition}
+%\end{frame}
+
+
+
+
+
+
+%\section{}
+%\begin{frame}
+%\frametitle{Bibliography}
+%\bibliographystyle{amsalpha}
+%\bibliography{./Thesis/BIB}{}
+%\end{frame}
+\begin{frame}[plain]
+\begin{center}
+Thank you.
+\end{center}
+\end{frame}
+
+
+
+
+
+
+
+\end{document}
