@@ -17,28 +17,20 @@
 %\addtolength{\textwidth}{1.5em}
 %\addtolength{\oddsidemargin}{-0.75em}
 
-%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
-%\renewcommand{\baselinestretch}{1.2}
-%\newtheorem{theorem}{Theorem}[section]
-%\newtheorem{corollary}[theorem]{Corollary}
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newtheorem{observation}[theorem]{Observation}
-%\newtheorem{proposition}[theorem]{Proposition}
-%\newtheorem{statement}[theorem]{Statement}
-%\newtheorem{fact}[theorem]{Fact}
-%%\newtheorem{conjecture}[thm]{Conjecture}
-%\newtheorem*{thm*}{Theorem} % unnumbered
-%
-%\theoremstyle{definition}
-%\newtheorem{definition}[theorem]{Definition}
-%\newtheorem{question}[theorem]{Question}
-%\newtheorem{assumption}[theorem]{Assumption}
-%
-%\theoremstyle{remark}
-%\newtheorem{remark}[theorem]{Remark}
-%\newtheorem{example}[theorem]{Example}
-%\newtheorem*{claim}{Claim}
-%\newtheorem{claimno}{Claim}
+
+
+
+\newtheorem{statement}[theorem]{Statement}
+%\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem*{thm*}{Theorem} % unnumbered
+
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{claim}{Claim}
+\newtheorem{claimno}{Claim}
 
 
 
@@ -160,27 +152,110 @@
 \title{Subcomplete Forcing, Trees, and Generic Absoluteness}
 \author[Kaethe Minden]{Kaethe Minden \newline (joint with Gunter Fuchs)}
 \institute[Marlboro]{Marlboro College}
-\date{}
+\date[Winter School]{Winter School in Abstract Analysis \\ January 2018}
 
 \begin{document}
 \begin{frame}[plain]
 \titlepage
 \end{frame}
 
-%\begin{frame}
-%\begin{abstract} %Subcomplete forcing is a class of forcing notions introduced by Ronald Jensen. These forcings do not add reals but may change cofinalities to $\omega$, unlike proper forcings. Examples of subcomplete forcing include Namba forcing, Prikry forcing, and any countably closed forcing. 
-%In this talk I will introduce subcompleteness, and we will familiarize ourselves with the definition by seeing it does not add reals. We will then see that subcomplete forcing does not add branches to $\omega_1$-trees, one of a handful of recent results examining the interaction between subcomplete forcing and $\omega_1$--trees. \end{abstract}
-%\end{frame}
 
-%\section{Introduction}
+%%%%The talk should go as follows: Here's some stuff I did in my thesis about preservation of trees, and then Gunter answered the question using BSCFA and CH and stuff. And this yields questions about other forcing classes and so on.
+
+
+
+\begin{frame}{Generic Absoluteness}
+%Next, we will look at the preservation of wide Aronszajn trees from a different angle, and show that under \CH, dropping the restriction to trees with countable levels amounts to making a statement about a certain form of generic absoluteness which we introduce in the following.
+\begin{definition}
+\label{def:GenericAbsoluteness}
+Let $\P$ be a forcing notion, let $n$ be a natural number, and let $\kappa$ be a cardinal. Then 
+\emph{\textbf{$\P$-generic $\mathbf{\Sigma}^1_n(\kappa)$-absoluteness}} states that for any model $M$ of size $\kappa$ for a countable first order language and every $\Sigma^1_n$-sentence $\varphi$ over the language of $M$, for any finite list of finitary predicates $\vec A$,
+\[(\langle M,\vec{A}\rangle \models \varphi)^{V} \iff 1_\P\forces_\P(\langle \check{M},\check{\vec{A}}\rangle \models \varphi).\]
+%Here, we are referring to the second order satisfaction relation of $M$ associated to its first order language. That is, the second order variables occurring in the body of $\varphi$ are treated as some finitary relations.
+%We will refer to a $\Sigma_2^1(H_{\omega_1})$-property of some object in $H_{\omega_1}$ that is subcomplete-generic absolute as being \textbf{\emph{$sc$-absolute}}, using the object as a parameter, and meaning that whether or not subcomplete forcing was performed does not affect whether this property holds or not.
+%	\item \emph{\textbf{Strong $\P$-generic $\mathbf{\Sigma}^1_n(\kappa)$-absoluteness}} states that for any model $M$ of size $\kappa$ for a countable first order language and every $\Sigma^1_n$-sentence $\varphi$ over the language of $M$, for any finite list of finitary predicates $\vec A$, whenever $G \subseteq \P$ is generic over $V$, then:
+%\[(\langle M,\vec{A}\rangle \models \varphi)^{V} \iff (\langle {M}, {\vec{A}}\rangle \models \varphi)^{V[G]}.\]
+%\end{itemize}
+\end{definition}
+
+For a class $\Gamma$ of forcing notions, $\Gamma$-generic absoluteness is the statement that $\P$-generic absoluteness holds for every $\P\in\Gamma$. 
+
+One might wish to work with canonical models such as $H_{\omega_1}$ in the above. As far as we are concerned it turns out that $\Gamma$-generic $\mathbf{\Sigma}^1_1(H_{\omega_1})$-absoluteness is equivalent to $\Gamma$-generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness, where $\kappa=2^\omega$, that is, as far as the classes of c.c.c, proper, semi-proper, stationary set preserving or subcomplete forcing are concerned.
+\end{frame}
+
+\begin{frame} \frametitle{Background on generic absoluteness}
+\begin{observation}
+\label{obs:GenSigma1-1(omega)absolutenessHolds}\begin{itemize}
+\item For any poset $\P$, $\P$-generic $\mathbf{\Sigma}^1_1(\omega)$-absoluteness holds.
+\item
+\label{item:AddOmega11}
+If $\CH$ fails then $\Add(\omega_1,1)$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
+\item
+\label{item:Collapse}
+$\Col{\omega_1,\omega_2}$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
+\item
+\label{item:AddingReals}
+If $\P$ is a forcing that adds a real, then $\P$-generic $\mathbf{\Sigma}^1_1(2^\omega)$-absoluteness fails.
+\end{itemize}
+
+
+\end{observation}
+\begin{theorem}[\cite{Fuchs:MPclosed}] 
+\begin{itemize}
+	\item Countably closed-generic $\mathbf{\Sigma}^1_1(\omega_1)$-absoluteness is provable in \ZFC.
+	\item The countably closed maximality principle implies countably closed-generic $\mathbf{\Sigma}_2^1(H_{\omega_1})$-absoluteness. 
+\end{itemize}
+\end{theorem}
+Dually to the situation with countably closed forcing, the underlying main question is whether subcomplete-generic $\mathbf{\Sigma}^1_1(\omega_1)$-absoluteness is provable in $\ZFC$. 
+\end{frame}
+
+\begin{frame}{Generic absoluteness and trees}
+\begin{lemma}
+\label{lem:CharacterizationOfGenericAbsolutenessUnderCH}
+Assume $\CH$. Let $\P$ be a forcing notion. Then the following are equivalent.
+\begin{enumerate}
+\item
+\label{item:NoNewRealsAndBranches}
+Whenever $T$ is an $(\omega_1,{\le}\omega_1)$-Aronszajn tree, then
+it is not the case that $1_\P$ forces that $\check{T}$ has a cofinal branch, and it is not the case that $1_\P\forces_\P$``there is a new real''.
+\item
+\label{item:Sigma1-1-Absoluteness}
+$\P$-generic $\mathbf{\Sigma}_1^1(\omega_1)$-absoluteness holds.
+\end{enumerate}
+\end{lemma}
+%Need to say here what strong generic absoluteness is.
+%\begin{lemma}
+%\label{lem:CharacterizationOfStrongGenericAbsolutenessUnderCH}
+%Assume $\CH$. Let $\P$ be a forcing notion. Then the following are equivalent.
+%\begin{enumerate}
+%\item
+%\label{item:NoNewRealsAndBranches2}
+%$\P$ preserves $(\omega_1,{\le}\omega_1)$-Aronszajn trees and does not add reals.
+%\item
+%\label{item:Sigma1-1-Absoluteness2}
+%Strong $\P$-generic $\mathbf{\Sigma}_1^1(\omega_1)$-absoluteness holds.
+%\end{enumerate}
+%\end{lemma}
+Thus we have a convenient rephrasing of our main question about whether subcomplete-generic $\mathbf{\Sigma}^1_1(\omega_1)$-absoluteness is provable in $\ZFC$.
+
+\begin{question}[Main]
+\label{ques:aronszajnbranch?}
+Can subcomplete forcing add cofinal branches to $(\omega_1,{\leq}\omega_1)$-Aronszajn trees?
+\end{question}
+\end{frame}
+
+
+
+
+
 \begin{frame}
-%\frametitle{Subcomplete forcing} 
+\frametitle{Subcomplete forcing} 
 Subcomplete forcing is a class of forcing notions defined by Ronald B. Jensen. Subcomplete forcing does not add reals, but may potentially alter cofinalities to $\omega$. %Defined at some point before 2012.
 \begin{block}{Examples of subcomplete forcing}
 \begin{itemize}
 	\item \textbf{Countably closed forcing}.
 	\item \textit{\textbf{Namba forcing}}, denoted by $\Namba$, a forcing notion consisting of subtrees $T \neq \emptyset$ of $\omega_2^{<\omega}$ ordered by inclusion, such that $T$ is downward closed in $\omega_2^{<\omega}$ and where each node in $T$ has $\omega_2$-many eventual successors in $T$. 
-Each condition in $\Namba$ has size $\omega_2$. Namba forcing adds a cofinal sequence $S: \omega \To \omega_2^V$ to the extension, a cofinal branch through $\omega_2^{<\omega}$.
+Namba forcing adds a cofinal sequence $S: \omega \To \omega_2^V$ to the extension.
 Under $\CH$, Namba forcing adds no new reals and is subcomplete \cite[Section 3.3]{Jensen:2012fr}. 
 	\item \textbf{Prikry forcing}, which forces a measurable cardinal to have cofinality $\omega$ while preserving cardinalities.
 %	\item Certain kinds of \textbf{generalized diagonal Prikry forcing} which force a sequence of measurables to have cofinality $\omega$.
@@ -188,14 +263,14 @@ Under $\CH$, Namba forcing adds no new reals and is subcomplete \cite[Section 3.
 	\item \color{Green} \textbf{Generalized diagonal Prikry forcing}
 \end{itemize}
 \end{block}
-\begin{itemize}
-	\item Revised countable support ($rcs$) iterations of subcomplete forcing notions.
-	\item \color{Green} Lottery sums of subcomplete forcing notions.
-	\item \color{Green} If $\P$ is subcomplete and $\pi: \P \To \Q$ is a dense embedding, then $\Q$ is subcomplete. 
-\end{itemize}
+%\begin{itemize}
+%	\item Revised countable support ($rcs$) iterations of subcomplete forcing notions.
+%	\item \color{Green} Lottery sums of subcomplete forcing notions.
+%	\item \color{Green} If $\P$ is subcomplete and $\pi: \P \To \Q$ is a dense embedding, then $\Q$ is subcomplete. 
+%\end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Subcomplete forcing}
 How subcompleteness fits in with other forcing classes which preserve stationary subsets of $\omega_1$:
 \begin{center}
 \begin{figure}[h!]
@@ -215,7 +290,7 @@ How subcompleteness fits in with other forcing classes which preserve stationary
 \end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Subcomplete forcing's effect on trees}
 \begin{theorem} The following properties of an $\omega_1$-tree $T$ are preserved by subcomplete forcing:
 \begin{enumerate}
 	\item \label{item:TisAronszajn} $T$ is Aronszajn
@@ -227,85 +302,27 @@ How subcompleteness fits in with other forcing classes which preserve stationary
 	\item \label{item:TisSuslinandNUBP} $T$ is $(n-1)$-fold $\sob$ and $n$-fold $\ubp$ (for $n\ge 2$)
 \end{enumerate}
 \end{theorem}
+%Obviously need to at least state the definition of these things
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Subcomplete forcing's effect on wider trees}
 \begin{observation}
-Subcomplete (or even countably closed) forcing may add a cofinal branch to an $(\omega_1,{\leq}2^{\omega})$-tree.
+\begin{itemize}
+	\item Subcomplete (or even countably closed) forcing may add a cofinal branch to an $(\omega_1,{\leq}2^{\omega})$-tree.
+	\item Suppose that Friedman's Principle fails for $\omega_2$. Then subcomplete forcing may add a cofinal branch to an $(\omega_1,{\leq}\omega_2 \cdot 2^\omega)$-Aronszajn tree.
+	\item Subcomplete forcing cannot add (cofinal) branches to $(\omega_1,{<}2^\omega)$-trees. 
+\end{itemize} 
 \end{observation}
-\begin{proposition}
-\label{prop:PAaddsBranchToItself}
-Suppose that Friedman's Principle fails for $\omega_2$. Then subcomplete forcing may add a cofinal branch to an $(\omega_1,{\leq}\omega_2 \cdot 2^\omega)$-Aronszajn tree. \end{proposition}
-\begin{theorem}
-\label{thm:SCforcingAddsNoNewBranchGeneral}
-Subcomplete forcing cannot add (cofinal) branches to $(\omega_1,{<}2^\omega)$-trees. \end{theorem}
-\end{frame}
-
-\begin{frame}
-Next, we will look at the preservation of wide Aronszajn trees from a different angle, and show that under \CH, dropping the restriction to trees with countable levels amounts to making a statement about a certain form of generic absoluteness which we introduce in the following.
-\begin{definition}
-\label{def:GenericAbsoluteness}
-Let $n$ be a natural number, let $\P$ be a notion of forcing, and let $\kappa$ be a cardinal. Then \emph{$\P$-generic $\mathbf{\Sigma}^1_n(\kappa)$-absoluteness} is the statement that for any model $M$ of size $\kappa$ for a countable first order language and every $\Sigma^1_n$-sentence $\varphi$ over the language of $M$, the following holds:
-\[(\langle M,\vec{A}\rangle \models \varphi)^V \iff 1_\P\forces_\P(\langle \check{M},\vec{\check{A}}\rangle \models \varphi)\]
-Here, we are referring to the second order satisfaction relation of $M$ associated to its first order language. That is, the second order variables occurring in the body of $\phi$ are treated as some finitary relations.
-
-%$M$ be a transitive set. %(usually either $\omega_1$ or $H_{\omega_1}$).
-%Then \emph{$\P$-generic $\mathbf{\Sigma}^1_n(M)$-absoluteness} is the statement that for any finite list $A_1,\ldots,A_m$ of finitary predicates over $M$ (that is, each $A_i$ is a subset of $M^{m_i}$, for some $m_i<\omega$) and every $\Sigma^1_n$-sentence $\varphi$ in the language with predicate symbols $\dot{A}_1,\ldots,\dot{A}_m$, the arity of $\dot{A}_i$ being $m_i$, the following holds:
-%\[(\langle M,\vec{A}\rangle \models \varphi)^V \iff 1_\P\forces_\P(\langle \check{M},\vec{\check{A}}\rangle \models \varphi)\]
-
-For a class $\Gamma$ of forcings, $\Gamma$-generic $\mathbf{\Sigma}^1_n(\kappa)$-absoluteness is the statement that $\P$-generic $\Sigma^1_n(M)$-absoluteness holds for every $\P\in\Gamma$. The classes of interest to us are the classes of c.c.c, proper, semi-proper, stationary set preserving or subcomplete forcings.
-%We will refer to a $\Sigma_2^1(H_{\omega_1})$-property of some object in $H_{\omega_1}$ that is subcomplete-generic absolute as being \textbf{\emph{$sc$-absolute}}, using the object as a parameter, and meaning that whether or not subcomplete forcing was performed does not affect whether this property holds or not.
-\end{definition}
-\begin{observation}
-\label{obs:GenSigma1-1(omega)absolutenessHolds}
-For any poset $\P$, $\P$-generic $\mathbf{\Sigma}^1_1(\omega)$-absoluteness holds.
-\end{observation}
-\end{frame}
-
-\begin{frame}
-There is a natural version of the absoluteness properties introduced in the previous definition where one talks about a certain canonical structure $M$, defined by a formula to be re-interpreted in $\V[G]$. For example, let's define $\P$-generic $\mathbf{\Sigma}^1_1(H_{\omega_1})$-absoluteness to mean
-\[(\langle H_{\omega_1},\vec{A}\rangle \models \varphi)^V \iff (\langle H_{\omega_1},\vec{A}\rangle \models \varphi)^{V^\P}\]
-for any finite set of finitary predicates $\vec{A}$, where
-$H_{\omega_1}$ is \emph{re-interpreted} in $\V^\P$ on the right hand side, rather than working with the same model on both sides. Further, $\Gamma$-generic $\mathbf{\Sigma}^1_1(H_{\omega_1})$-absoluteness means that this holds for every $\P\in\Gamma$.
-
-It turns out that $\Gamma$-generic $\mathbf{\Sigma}^1_1(H_{\omega_1})$-absoluteness
-is equivalent to $\Gamma$-generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness, where $\kappa=2^\omega$, as far as we are concerned, that is, as far as the classes of forcings listed in the definition are concerned.
+Again we turn to the question stated earlier:
+\begin{question}[Main]
+\label{ques:aronszajnbranch?}
+Can subcomplete forcing add cofinal branches to $(\omega_1,{\leq}\omega_1)$-Aronszajn trees?
+\end{question}
+By the third bullet point in the above observation, if $CH$ fails, then the answer to the main question is no.
 \end{frame}
 
 
-
-
-\begin{frame}
-
-\begin{lemma}
-\label{lem:CharacterizationOfGenericAbsolutenessUnderCH}
-Assume $\CH$. Let $\P$ be a forcing notion. Then the following are equivalent.
-\begin{enumerate}
-\item
-\label{item:NoNewRealsAndBranches}
-Whenever $T$ is an $(\omega_1,{\le}\omega_1)$-Aronszajn tree, then
-it is not the case that $1_\P$ forces that $\check{T}$ has a cofinal branch, and it is not the case that $1_\P\forces_\P$``there is a new real''.
-\item
-\label{item:Sigma1-1-Absoluteness}
-$\P$-generic $\mathbf{\Sigma}_1^1(\omega_1)$-absoluteness holds.
-\end{enumerate}
-\end{lemma}
-
-\begin{lemma}
-\label{lem:CharacterizationOfStrongGenericAbsolutenessUnderCH}
-Assume $\CH$. Let $\P$ be a forcing notion. Then the following are equivalent.
-\begin{enumerate}
-\item
-\label{item:NoNewRealsAndBranches2}
-$\P$ preserves $(\omega_1,{\le}\omega_1)$-Aronszajn trees and does not add reals.
-\item
-\label{item:Sigma1-1-Absoluteness2}
-Strong $\P$-generic $\mathbf{\Sigma}_1^1(\omega_1)$-absoluteness holds.
-\end{enumerate}
-\end{lemma}
-\end{frame}
-
-\begin{frame}
+\begin{frame}{Generic absoluteness and bounded forcing axioms}
 \begin{theorem}[{\cite[Theorem 5]{Bagaria:BFAasPrinciplesOfGenAbsoluteness}}]
 \label{thm:bagaria}
 Let $\P$ be a forcing notion. Then the following are equivalent:
@@ -321,27 +338,47 @@ $\kla{H_{\omega_2},\in}\models\varphi(\vec{a})$ iff $\kla{H_{\omega_2},\in}^{\V^
 \end{enumerate}
 \end{theorem}
 
-A very popular way of reformulating this theorem is as follows.
-
-\begin{theorem}
-\label{thm:bagaria2}
-Let $\P$ be a forcing notion. Then the following are equivalent:
+%A very popular way of reformulating this theorem is as follows.
+%
+%\begin{theorem}
+%\label{thm:bagaria2}
+%Let $\P$ be a forcing notion. Then the following are equivalent:
+%\begin{enumerate}
+%\item
+%\label{item:BFAforP2}
+%The strong bounded forcing axiom holds for $\P$, meaning that the bounded forcing axiom holds for $\{\P_{{\le}p}\st p\in\P\}$.
+%\item
+%\label{item:Sigma1Absoluteness2}
+%Strong $\P$-generic $\Sigma_1(H_{\omega_2})$-absoluteness holds:
+%if $G$ is $\P$-generic over $\V$, then \[\kla{H_{\omega_2},\in}\prec_{\Sigma_1}\kla{H_{\omega_2},\in}^{\V[G]}\]
+%\end{enumerate}
+%\end{theorem}
+%\end{frame}
+%
+%\begin{frame}
+\begin{observation}
+\label{obs:EquivalenceBtwSigma1-1AndSigma1-absoluteness}
+Let $\P$ be a notion of forcing that does not add reals. Consider the following statements.
 \begin{enumerate}
 \item
-\label{item:BFAforP2}
-The strong bounded forcing axiom holds for $\P$, meaning that the bounded forcing axiom holds for $\{\P_{{\le}p}\st p\in\P\}$.
+\label{item:Sigma1AbsolutenessAgain}
+%Whenever $G$ is generic for $\P$ over $\V$, we have that
+%\[\kla{H_{\omega_2},\in}\prec_{\Sigma_1}\kla{H_{\omega_2},\in}^{\V[G]}\]
+$\P$-generic $\Sigma_1(H_{\omega_2})$-absoluteness holds.
 \item
-\label{item:Sigma1Absoluteness2}
-Strong $\P$-generic $\Sigma_1(H_{\omega_2})$-absoluteness holds:
-if $G$ is $\P$-generic over $\V$, then \[\kla{H_{\omega_2},\in}\prec_{\Sigma_1}\kla{H_{\omega_2},\in}^{\V[G]}\]
+\label{item:Sigma1-1AbsolutenessAgain}
+$\P$-generic $\mathbf{\Sigma}^1_1(2^\omega)$-absoluteness holds.
 \end{enumerate}
-\end{theorem}
-
+We have that \ref{item:Sigma1-1AbsolutenessAgain}$\implies$\ref{item:Sigma1AbsolutenessAgain}, and if \CH{} holds, then \ref{item:Sigma1AbsolutenessAgain}$\implies$\ref{item:Sigma1-1AbsolutenessAgain}.
+In particular, under \CH, the two are equivalent.
+\end{observation}
 \end{frame}
 
 
 
-\begin{frame}
+
+
+\begin{frame}{Answer to the main question}
 \begin{theorem}
 \label{thm:UnderCHEverythingIsClear}
 Assuming \CH, the following are equivalent.
@@ -353,7 +390,8 @@ Assuming \CH, the following are equivalent.
 \end{enumerate}
 \end{theorem}
 
-This puts us in a position to answer Question \ref{ques:aronszajnbranch?}, asking whether subcomplete forcing may add a cofinal branch to an $(\omega_1,{\le}\omega_1)$-Aronszajn tree, completely. Recall Theorem \ref{thm:SCforcingAddsNoNewBranchGeneral}, which gives us part 1.~of the following theorem.
+This puts us in a position to answer the main question asking whether subcomplete forcing may add a cofinal branch to an $(\omega_1,{\le}\omega_1)$-Aronszajn tree, completely. 
+%Recall Theorem \ref{thm:SCforcingAddsNoNewBranchGeneral}, which gives us part 1.~of the following theorem.
 
 \begin{theorem}
 \label{theorem:CompleteAnswer}
@@ -365,7 +403,7 @@ Splitting in two cases, we have:
 \end{theorem}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Other forcing classes}
 \begin{observation}
 \label{observation:1=>2=>3}
 Let $\Gamma$ be a class of forcings such that if $\P\in\Gamma$ and $p\in\P$, then $\P_{{\le}p}\in\Gamma$. Then 1.$\implies$2.$\implies$3.:
@@ -375,45 +413,43 @@ Let $\Gamma$ be a class of forcings such that if $\P\in\Gamma$ and $p\in\P$, the
 \item Forcings in $\Gamma$ preserve $(\omega_1,{\le}\omega_1)$-Aronszajn trees.
 \end{enumerate}
 \end{observation}
-The bounded forcing axiom for any of the canonical classes of forcing other than subcompleteness implies the failure of \CH. This is why we slowly shift the focus to $\neg\CH$ in the following.
-First, let's observe some limitations on $\Gamma$-generic $\Sigma^1_1(\kappa)$-absoluteness.
-\begin{observation}
-\label{obs:H-omega1NotInteresting}
-We have the following limitations on generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness, for $\kappa$ an arbitrary cardinal not necessarily $\omega_1$.
-\begin{enumerate}
-\item
-\label{item:AddOmega11}
-If $\CH$ fails then $\Add(\omega_1,1)$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
-\item
-\label{item:Collapse}
-$\Col{\omega_1,\omega_2}$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
-\item
-\label{item:AddingReals}
-If $\P$ is a forcing that adds a real, then $\P$-generic $\mathbf{\Sigma}^1_1(2^\omega)$-absoluteness fails.
-\end{enumerate}
-\end{observation}
+%The bounded forcing axiom for any of the canonical classes of forcing other than subcompleteness implies the failure of \CH. This is why we slowly shift the focus to $\neg\CH$.
+%First, let's observe some limitations on $\Gamma$-generic $\Sigma^1_1(\kappa)$-absoluteness.
+%\begin{observation}
+%\label{obs:H-omega1NotInteresting}
+%We have the following limitations on generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness, for $\kappa$ an arbitrary cardinal not necessarily $\omega_1$.
+%\begin{enumerate}
+%\item
+%\label{item:AddOmega11}
+%If $\CH$ fails then $\Add(\omega_1,1)$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
+%\item
+%\label{item:Collapse}
+%$\Col{\omega_1,\omega_2}$-generic $\mathbf{\Sigma}^1_1(\omega_2)$-absoluteness fails.
+%\item
+%\label{item:AddingReals}
+%If $\P$ is a forcing that adds a real, then $\P$-generic $\mathbf{\Sigma}^1_1(2^\omega)$-absoluteness fails.
+%\end{enumerate}
+%\end{observation}
 
+%\begin{corollary}
+%The following are equivalent:
+%\begin{enumerate}
+%  \item \MA.
+%  \item for every cardinal $\kappa<2^\omega$, c.c.c.-generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness holds.
+%\end{enumerate}
+%\end{corollary}
+
+\begin{observation}
+Let $\Gamma$ contain all proper forcing notions or all subcomplete ones. Then 3. does not imply 1..
+\end{observation}
+\begin{proof}
+It follows from $\MA_{\omega_1}$ that every $(\omega_1,{\le}\omega_1)$-tree is special, and hence that every such tree is preserved by every $\omega_1$-preserving forcing. The consistency strength of $\MA_{\omega_1}$ is the same as that of $\ZFC$, while the consistency strength of $\BFA_\Gamma$ is at least a reflecting cardinal, which is strictly higher.
+\end{proof}
 \end{frame}
 
-\begin{frame}
-\begin{corollary}
-The following are equivalent:
-\begin{enumerate}
-  \item \MA.
-  \item for every cardinal $\kappa<2^\omega$, c.c.c.-generic $\mathbf{\Sigma}^1_1(\kappa)$-absoluteness holds.
-\end{enumerate}
-\end{corollary}
-For the other classes of forcing, we can answer a related question easily.
+\begin{frame}{Final remarks and questions} 
 
-\begin{observation}
-Let $\Gamma$ contain all proper forcing notions or all subcomplete ones. Then the assertion that forcings in $\Gamma$ preserve $(\omega_1,{\le}\omega_1)$-trees does not imply $\BFA_\Gamma$.
-\end{observation}
-
-%\begin{proof}
-%It follows from $\MA_{\omega_1}$ that every $(\omega_1,{\le}\omega_1)$-tree is special, and hence that every such tree is preserved by every $\omega_1$-preserving forcing. The consistency strength of $\MA_{\omega_1}$ is the same as that of $\ZFC$, while the consistency strength of $\BFA_\Gamma$ is at least a reflecting cardinal, which is strictly higher.
-%\end{proof}
-
-But the general relationship between the pertinent properties is unclear.
+The general relationship between the pertinent properties is unclear.
 
 \begin{question}
 Let $\Gamma$ be the class of proper, semi-proper, stationary set preserving or subcomplete forcings. Which implications hold between the following properties?
@@ -423,10 +459,11 @@ Let $\Gamma$ be the class of proper, semi-proper, stationary set preserving or s
 \item Forcings in $\Gamma$ preserve $(\omega_1,{\le}\omega_1)$-Aronszajn trees.
 \end{enumerate}
 \end{question}
-\end{frame}
 
-\begin{frame}
-There are some interesting questions about subcomplete-generic absoluteness when \CH{} fails. In this case, \BSCFA{} may still hold -- for example, \BMM, the bounded forcing axiom for stationary set preserving forcings, implies $\BSCFA + 2^\omega=\omega_2$. In a model of $\BSCFA+\neg\CH$, we clearly have subcomplete-generic $\mathbf{\Sigma}^1_1(\omega_1)$ absoluteness, by Observation \ref{observation:1=>2=>3}. The consistency strength of \BMM{} is known to be much higher than a reflecting cardinal, see \cite{Schindler:BMMandStrongs}. We have seen in Theorem \ref{thm:SCforcingAddsNoNewBranchGeneral} that under $\neg\CH$, subcomplete forcing preserves $(\omega_1,{\le}\omega_1)$-Aronszajn trees, so $\CH$ certainly does not imply $\BSCFA$. We are thus left with the following additional question: 
+There are some interesting questions about subcomplete-generic absoluteness when $\CH$ fails. In this case, $\BSCFA$ may still hold.
+
+
+%-- for example, \BMM, the bounded forcing axiom for stationary set preserving forcings, implies $\BSCFA + 2^\omega=\omega_2$. In a model of $\BSCFA+\neg\CH$, we clearly have subcomplete-generic $\mathbf{\Sigma}^1_1(\omega_1)$ absoluteness, by Observation \ref{observation:1=>2=>3}. The consistency strength of \BMM{} is known to be much higher than a reflecting cardinal, see \cite{Schindler:BMMandStrongs}. We have seen in Theorem \ref{thm:SCforcingAddsNoNewBranchGeneral} that under $\neg\CH$, subcomplete forcing preserves $(\omega_1,{\le}\omega_1)$-Aronszajn trees, so $\CH$ certainly does not imply $\BSCFA$. We are thus left with the following additional question: 
 \begin{question} What is the consistency strength of $\neg\CH$ together with subcomplete-generic $\mathbf{\Sigma}^1_1(\omega_1)$-absoluteness? \end{question}
 \end{frame}
 
